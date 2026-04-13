@@ -1,0 +1,156 @@
+/* Narrative Panel Styling */
+.narrative-panel {
+  width: 100%;
+  max-width: 380px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin-left: auto;
+  padding: 0;
+}
+
+.narrative-header {
+  padding: 2rem 1.5rem;
+  border-left: 4px solid var(--stage-color);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, transparent 100%);
+}
+
+.narrative-step {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgb(107, 114, 128);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.narrative-kicker {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(107, 114, 128);
+  margin: 0.5rem 0 0 0;
+}
+
+.narrative-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: rgb(23, 23, 23);
+  margin: 0.75rem 0 0 0;
+  line-height: 1.2;
+}
+
+/* Narrative Content */
+.narrative-content {
+  padding: 1.5rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.narrative-description {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgb(55, 65, 81);
+  margin: 0 0 1.5rem 0;
+}
+
+.narrative-insight {
+  background: var(--stage-light, rgba(59, 130, 246, 0.1));
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 3px solid var(--stage-color);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.insight-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.narrative-insight p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+  color: rgb(55, 65, 81);
+  font-weight: 500;
+}
+
+/* Progress Bar */
+.narrative-progress {
+  height: 3px;
+  background: rgb(229, 231, 235);
+  margin: 1.5rem 0 0 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--stage-color);
+  transition: width 0.4s ease;
+}
+
+/* Controls */
+.narrative-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgb(249, 250, 251);
+  border-top: 1px solid rgb(229, 231, 235);
+}
+
+.nav-button {
+  padding: 0.75rem 1rem;
+  border: 2px solid rgb(229, 231, 235);
+  border-radius: 10px;
+  background: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(107, 114, 128);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover:not(:disabled) {
+  border-color: var(--stage-color);
+  color: var(--stage-color);
+  background: var(--stage-light);
+}
+
+.nav-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 1600px) {
+  .narrative-panel {
+    width: 320px;
+    max-width: 340px;
+  }
+
+  .narrative-header {
+    padding: 1.5rem;
+  }
+
+  .narrative-title {
+    font-size: 1.25rem;
+  }
+
+  .narrative-description {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .narrative-panel {
+    max-width: none;
+    width: 100%;
+    margin-left: 0;
+  }
+}

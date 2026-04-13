@@ -1,0 +1,61 @@
+/* Pipeline Main Layout - Vertical Flow */
+.pipeline-root {
+  width: 100%;
+  min-height: auto;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.pipeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Responsive widths for different screen sizes */
+@media (max-width: 1600px) {
+  .pipeline-container {
+    max-width: 850px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .pipeline-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pipeline-container {
+    max-width: 95%;
+  }
+  
+  .pipeline-root {
+    padding: 1rem 0.5rem;
+  }
+}
+
+.pipeline-stage-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  align-items: center;
+}
+
+.flow-connector-wrapper {
+  flex-shrink: 0;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}

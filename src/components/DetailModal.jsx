@@ -1,0 +1,110 @@
+import { useEffect, useRef } from "react";
+import { X } from "lucide-react";
+import { getStageColor } from "../constants/colors.js";
+import { useModalAnimations } from "../hooks/useModalAnimations.js";
+import "../styles/DetailModal.css";
+
+export function DetailModal({ stage, index, isOpen, onClose, children }) {
+  const modalRef = useRef(null);
+  const visualizationRef = useModalAnimations(stage, isOpen, index);
+  const stageColor = getStageColor(index);
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose?.();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
+  // Handle backdrop click to close
+  const handleBackdropClick = (e) => {
+    if (e.target === modalRef.current) {
+      onClose?.();
+    }
+  };
+
+  if (!isOpen || !stage) return null;
+
+  return (
+    <div
+      ref={modalRef}
+      className="detail-modal-backdrop"
+      onClick={handleBackdropClick}
+      style={{
+        "--stage-color": stageColor.primary,
+        "--stage-light": stageColor.light,
+        "--stage-accent": stageColor.accent,
+      }}
+    >
+      <div className="detail-modal-container">
+        {/* Modal Header */}
+        <div className="detail-modal-header">
+          <div className="detail-modal-title-group">
+            <div className="detail-modal-number">{stage.number}</div>
+            <div className="detail-modal-titles">
+              <h2 className="detail-modal-title">{stage.title}</h2>
+              <p className="detail-modal-subtitle">{stage.subtitle}</p>
+            </div>
+          </div>
+          <button className="detail-modal-close" onClick={onClose} title="Close (ESC)">
+            <X size={24} />
+          </button>
+        </div>
+
+        {/* Modal Content */}
+        <div className="detail-modal-content">
+          {/* Visualization */}
+          <div ref={visualizationRef} className="detail-modal-visualization">
+            {children}
+          </div>
+
+          {/* Details Panel */}
+          <div className="detail-modal-details">
+            <div className="details-section">
+              <h3 className="details-section-title">How It Works</h3>
+              <p className="details-section-text">{stage.description}</p>
+            </div>
+
+            <div className="details-section">
+              <h3 className="details-section-title">💡 Key Insight</h3>
+              <div className="key-insight-box">
+                <p>{stage.key_insight}</p>
+              </div>
+            </div>
+
+            {stage.kicker && (
+              <div className="details-section">
+                <h3 className="details-section-title">Purpose</h3>
+                <p className="details-section-text">{stage.kicker}</p>
+              </div>
+            )}
+
+            <div className="details-section">
+              <h3 className="details-section-title">Input / Output</h3>
+              <div className="io-flow">
+                <div className="io-box input">
+                  <span className="io-label">Input</span>
+                  <span className="io-value">Image Data</span>
+                </div>
+                <div className="io-arrow">→</div>
+                <div className="io-box output">
+                  <span className="io-label">Output</span>
+                  <span className="io-value">Processed Data</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default DetailModal;
