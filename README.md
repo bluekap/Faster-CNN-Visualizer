@@ -43,8 +43,8 @@ An interactive, high-fidelity visualization of the **Faster R-CNN** object detec
 ### Installation
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/bluekap/Faster-CNN-Visualizer.git
-   cd Faster-CNN-Visualizer
+   git clone https://github.com/bluekap/Faster-RCNN-Visualizer.git
+   cd Faster-RCNN-Visualizer
    ```
 
 2. **Install dependencies:**
@@ -68,6 +68,16 @@ Preview the production build locally:
 ```bash
 npm run preview
 ```
+
+### 🚢 Deployment
+This project is configured for automated deployment to **GitHub Pages** using GitHub Actions.
+
+1.  **Configuration:** The deployment workflow is defined in `.github/workflows/deploy.yml`.
+2.  **Base Path:** The `base` property in `vite.config.js` is set to `'/Faster-RCNN-Visualizer/'` to ensure assets load correctly on GitHub Pages.
+3.  **Activation:**
+    - Go to your repository **Settings > Pages**.
+    - Under **Build and deployment > Source**, select **GitHub Actions**.
+4.  **Automatic Updates:** Every push to the `main` branch will automatically trigger a new deployment.
 
 ---
 
