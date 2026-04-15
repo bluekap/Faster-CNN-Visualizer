@@ -76,7 +76,7 @@ export function RPNStage() {
            onMouseLeave={() => setIsHovering(false)}>
         <div className="viz-label">Anchor Generator (Slide cursor to test)</div>
         <div className="viz-placeholder rpn-input relative overflow-hidden">
-          <img src="/images/street.jpg" alt="Feature maps" className="stage-input-image small" />
+          <img src={import.meta.env.BASE_URL + "images/street.jpg"} alt="Feature maps" className="stage-input-image small" />
           <div className="grid-overlay"></div>
           {isHovering && anchors.map((anchor, idx) => (
             <div 
@@ -157,7 +157,7 @@ export function RPNStage() {
         <div className="viz-label">Live Objectness Heatmap</div>
         <div className="viz-placeholder rpn-proposals" style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#111' }}>
           <img 
-            src="/images/street.jpg" 
+            src={import.meta.env.BASE_URL + "images/street.jpg"} 
             alt="Proposals on image" 
             className="stage-input-image small" 
             style={{ opacity: 0.25, filter: 'grayscale(80%)' }} 

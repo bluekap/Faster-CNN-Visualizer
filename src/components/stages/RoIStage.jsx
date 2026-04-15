@@ -43,7 +43,7 @@ export function RoIStage() {
         <div className="viz-placeholder roi-source relative overflow-hidden">
           {/* LEFT PANEL - exactly matching RPNStage to prevent flex collapse */}
           <img
-            src="/images/street.jpg"
+            src={import.meta.env.BASE_URL + "images/street.jpg"}
             alt="Proposals"
             className="stage-input-image small w-full h-full object-cover"
             draggable={false}
@@ -105,7 +105,7 @@ export function RoIStage() {
               instead of CSS transform percentages to ensure precise alignment
             */}
             <img
-              src="/images/street.jpg"
+              src={import.meta.env.BASE_URL + "images/street.jpg"}
               alt="Crop mapping"
               draggable={false}
               style={{

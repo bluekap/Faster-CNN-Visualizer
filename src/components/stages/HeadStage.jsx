@@ -142,7 +142,7 @@ export function HeadStage() {
         </div>
 
         <div className="viz-placeholder relative overflow-hidden">
-          <img src="/images/street.jpg" alt="Detection" className="stage-input-image small w-full h-full object-cover" draggable={false} />
+          <img src={import.meta.env.BASE_URL + "images/street.jpg"} alt="Detection" className="stage-input-image small w-full h-full object-cover" draggable={false} />
           <svg className="absolute" style={{ inset: '0.75rem', zIndex: 10, width: 'calc(100% - 1.5rem)', height: 'calc(100% - 1.5rem)' }} viewBox="0 0 100 100" preserveAspectRatio="none">
             {proposals.map(p => {
               const box = step >= 3 ? p.refined : p.raw;

@@ -378,7 +378,7 @@ export function BackboneStage() {
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={handleMouseLeave}
         >
-          <img src="/images/street.jpg" alt="Street scene" className="stage-input-image" />
+          <img src={import.meta.env.BASE_URL + "images/street.jpg"} alt="Street scene" className="stage-input-image" />
 
           {/* Faint Grid Overlay */}
           {isRFEnabled && (
